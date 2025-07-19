@@ -1,0 +1,7 @@
+{
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.guides.indentation": true,
+  "prettier.bracketSpacing": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
