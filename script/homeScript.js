@@ -1,3 +1,6 @@
+// import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js';
+import axios from 'https://cdn.skypack.dev/axios';
+
 const baseUrl = "https://tarmeezacademy.com/api/v1";
 let currentPage = 1;
 let lastPage = 1;

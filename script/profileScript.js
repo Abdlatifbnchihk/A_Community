@@ -1,3 +1,6 @@
+// import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js';
+import axios from 'https://cdn.skypack.dev/axios';
+
 setupUI();
 getUser();
 getPosts;
