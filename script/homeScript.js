@@ -1,5 +1,5 @@
 // import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js';
-import axios from 'https://cdn.skypack.dev/axios';
+import axios from 'https://esm.sh/axios';
 
 const baseUrl = "https://tarmeezacademy.com/api/v1";
 let currentPage = 1;
@@ -20,13 +20,15 @@ window.addEventListener("scroll", function () {
 function getPosts(reload = true, page = 1) {
   taggelLoader(true);
   axios.get(`${baseUrl}/posts?limit=5&page${page}`).then((response) => {
+    // console.log(response.data.data);
+    
     taggelLoader(false);
     const posts = response.data.data;
     lastPage = response.data.meta.last_page;
     if (reload) {
       document.getElementById("posts").innerHTML = "";
     }
-    for (post of posts) {
+    for (let post of posts) {
       let author = post.author;
 
       const postTitle = "";
