@@ -20,8 +20,6 @@ window.addEventListener("scroll", function () {
 function getPosts(reload = true, page = 1) {
   taggelLoader(true);
   axios.get(`${baseUrl}/posts?limit=5&page${page}`).then((response) => {
-    // console.log(response.data.data);
-    
     taggelLoader(false);
     const posts = response.data.data;
     lastPage = response.data.meta.last_page;
@@ -105,14 +103,20 @@ function getPosts(reload = true, page = 1) {
   });
 }
 
+window.getPosts = getPosts;
+
 function userClicked(userId) {
   window.location = `profile.html?userid=${userId}`;
 }
+
+window.userClicked = userClicked;
 
 function postClicked(id) {
   // console.log(id);
   window.location = `./postDitals.html?postId=${id}`;
 }
+
+window.postClicked = postClicked;
 
 setupUI();
 
@@ -169,6 +173,8 @@ function rejisterBttn() {
     });
 }
 
+window.rejisterBttn = rejisterBttn;
+
 // add login bttn
 function loginBttn() {
   const username = document.getElementById("login-username").value;
@@ -207,11 +213,15 @@ function loginBttn() {
     });
 }
 
+window.loginBttn = loginBttn;
+
 function profileClicked() {
   const user = getCurrentUser();
   const userId = user.id;
   window.location = `profile.html?userid=${userId}`;
 }
+
+window.profileClicked = profileClicked
 
 // logout bttn
 function logout() {
@@ -222,6 +232,8 @@ function logout() {
   ShowAlert("Loged out Is Successfully");
   getPosts();
 }
+
+window.logout = logout;
 
 // add new post button
 function creatNewPostBttn() {
@@ -277,6 +289,8 @@ function creatNewPostBttn() {
     });
 }
 
+window.creatNewPostBttn= creatNewPostBttn;
+
 // Update Post
 function editPostBtnClicked(postObject) {
   const post = JSON.parse(decodeURIComponent(postObject));
@@ -293,6 +307,8 @@ function editPostBtnClicked(postObject) {
   postModal.toggle();
 }
 
+window.editPostBtnClicked = editPostBtnClicked;
+
 function addBttnClicked() {
   document.getElementById("post-modal-submit-btn").innerHTML = "Add";
   document.getElementById("post-id-input").value = "";
@@ -306,12 +322,16 @@ function addBttnClicked() {
   postModal.toggle();
 }
 
+window.addBttnClicked = addBttnClicked
+
 // Delete Post
 
 function deletePostBtnClicked(postId) {
   const post = JSON.parse(decodeURIComponent(postId));
   document.getElementById("delete-post-id-title").value = post.id;
 }
+
+window.deletePostBtnClicked = deletePostBtnClicked
 
 // Confirm Post Delete
 
@@ -350,6 +370,8 @@ function confirmPostDalete() {
     });
 }
 
+window.confirmPostDalete = confirmPostDalete
+
 function ShowAlert(customMasage, type = "success") {
   const alertPlaceholder = document.getElementById("success-alert");
   const appendAlert = (message, type) => {
@@ -378,6 +400,8 @@ function ShowAlert(customMasage, type = "success") {
     alert.close();
   }, 2000);
 }
+
+window.ShowAlert = ShowAlert;
 
 function setupUI() {
   const token = localStorage.getItem("token");
@@ -412,6 +436,8 @@ function setupUI() {
   }
 }
 
+window.setupUI = setupUI
+
 function getCurrentUser() {
   let user = null;
 
@@ -424,9 +450,13 @@ function getCurrentUser() {
   return user;
 }
 
+window.getCurrentUser = getCurrentUser;
+
 function taggelLoader(show = true) {
   const loader = document.getElementById("loader");
   if (loader) {
     loader.style.visibility = show ? "visible" : "hidden";
   }
 }
+
+window.taggelLoader = taggelLoader;

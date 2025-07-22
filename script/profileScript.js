@@ -1,10 +1,11 @@
 // import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js';
 import axios from 'https://esm.sh/axios';
+const baseUrl = "https://tarmeezacademy.com/api/v1";
 
 
 setupUI();
 getUser();
-getPosts;
+getPosts();
 
 function getCurrentUserId() {
   const urlPrams = new URLSearchParams(window.location.search);
@@ -31,6 +32,8 @@ function getUser() {
     document.getElementById("main-info-title").innerHTML = user.username;
   });
 }
+
+window.getUser = getUser
 
 function getPosts() {
   const id = getCurrentUserId();
@@ -110,3 +113,5 @@ function getPosts() {
     }
   });
 }
+
+window.getPosts = getPosts
