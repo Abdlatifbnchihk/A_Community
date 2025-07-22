@@ -152,8 +152,7 @@ body {
     padding: 20px 15px;
   }
   #success-alert {
-    width: 80% !important;
-    color: red;
+    width: 100% !important;
   }
 }
 @media screen and (max-width: 400px) {
