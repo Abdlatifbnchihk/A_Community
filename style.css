@@ -142,7 +142,6 @@ body {
   }
   #main-infor {
     margin-top: 16px;
-    background: red;
     width: 100%;
   }
   #header-image {
@@ -154,9 +153,6 @@ body {
   }
 }
 @media screen and (max-width: 400px) {
-  body {
-    background-color: yellow;
-  }
   .card-header {
     display: flex;
     flex-direction: column;
