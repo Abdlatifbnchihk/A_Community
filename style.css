@@ -151,6 +151,10 @@ body {
   .card {
     padding: 20px 15px;
   }
+  #success-alert {
+    width: 80% !important;
+    color: red;
+  }
 }
 @media screen and (max-width: 400px) {
   .card-header {
@@ -167,5 +171,8 @@ body {
   #header-image {
     width: 100px;
     height: 100px;
+  }
+  #success-alert {
+    width: 100%;
   }
 }
